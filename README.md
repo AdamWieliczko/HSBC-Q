@@ -13,9 +13,9 @@ Where \l is `load` in Q terminology and will start script, `<directory>` is plac
 ### Description of folders
 
 #### Scripts
-This folder contains three load and three test scripts. It is created to make this whole compontent kind of blackbox - user don't have to look for anything inside other folders because scripts alone load anything that's needed.
+This folder contains four load and three test scripts. It is created to make this whole compontent kind of blackbox - user don't have to look for anything inside other folders because scripts alone load anything that's needed.
 
-As name suggests load scripts only load given functions so you can use them in your code. You can load TWAP, VWAP or VectorOfTimes.
+As name suggests load scripts only load given functions so you can use them in your code. You can load TWAP, VWAP or VectorOfTimes (with dynamic time as default or with current time marked as "CurrentTime").
 
 Tests scrips on the other hand access ``Tests`` folder that contains tests. When you run test script you of course also load needed functions for test purposes. Tests cover TWAP, VWAP and VectorOfTimes.
 
@@ -35,9 +35,11 @@ In this folder are located tests for TWAP, VWAP or VectorOfTimes.
 Tests are handmade with simple overall idea of [Arrange, Act, Assert](https://medium.com/@pjbgf/title-testing-code-ocd-and-the-aaa-pattern-df453975ab80). Every test have simple output for user to easly check which test failed and which passed correctly.
 
 #### VectorOfTimes
-This folder stores two implementation for VectorOfTimes - one is the main approach that I made and second one is implementation without starting time argument for times inside vector.
+This folder stores two implementation for VectorOfTimes - one is implementation with input as time and second one (named "Version2") is essentially one suggested in email. 
 
-First one is in my opinion better from testing purposes because not only we're able to insert any time we want and that's important for testing consistency.
+First one is created mostly for better testing purposes, it's the same as second one but with dynamic input we can check how code works in current structure. 
+There is also test for current time so it won't be a problem in terms of slightly different approach.
+
 
 #### WAP
 In WAP folder I made VWAP (Volume-weighted average price) and TWAP (Time-weighted average price) implementation. Each file contains responsible main method and data reader. VWAP and TWAP are by default made for one currency value at a time but for list usage I made `VWAPMultipleValues` and `TWAPMultipleValues` which supports multiple currencies and returns list of results for each one.
