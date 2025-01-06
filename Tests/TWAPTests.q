@@ -44,6 +44,26 @@ FewSecondRangeTWAPTest: {
  }
 
 
+OneTimestampMultipleValuesTWAPTest: {
+    path: `$":../Data/Trades.csv";
+    dataTable: TWAPDataReader[path];
+    currency: ("PLN/EUR";"EUR/GBP");
+    startTime: 2034.11.22D17:43:40.123456789;
+    endTime: 2034.11.22D17:43:40.123456789;
+
+    expectedValue: (2118.0 % 2700; 2238.0 % 2600);
+
+    result: TWAPMultipleValues[dataTable;currency;startTime;endTime];
+
+    testResult: all result=expectedValue;
+
+    $[testResult;
+	[show "OneTimestampMultipleValuesTWAPTest: Completed successfully!"];
+	[show "OneTimestampMultipleValuesTWAPTest: Failed!"]];
+    
+    testResult
+ }
+
 
 EmptyDataTableTWAPTest: {
     path: `$":../Data/EmptyTableTrades.csv";

@@ -14,3 +14,8 @@ VWAPWrapper: { [dataTable;currency;time]
 	result: VWAP[dataTable;currency;time;time];
 	result
  }
+
+VWAPMultipleValues: { [dataTable;currency;minimumTimeRange;maximumTimeRange]
+	result: VWAP[dataTable;;minimumTimeRange;maximumTimeRange] each currency;
+	result
+ }

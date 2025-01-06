@@ -13,7 +13,6 @@ OneTimestampVWAPTest: {
 
     testResult: result=expectedValue;
 
-
     $[testResult;
 	[show "OneTimestampVWAPTest: Completed successfully!"];
 	[show "OneTimestampVWAPTest: Failed!"]];
@@ -39,6 +38,28 @@ FewSecondRangeVWAPTest: {
     $[testResult;
 	[show "FewSecondRangeVWAPTest: Completed successfully!"];
 	[show "FewSecondRangeVWAPTest: Failed!"]];
+    
+    testResult
+ }
+
+
+OneTimestampMultipleValuesVWAPTest: {
+    path: `$":../Data/Trades.csv";
+    dataTable: VWAPDataReader[path];
+    currency: ("PLN/EUR";"EUR/GBP");
+    startTime: 2034.11.22D17:43:40.123456789;
+    endTime: 2034.11.22D17:43:40.123456789;
+
+    expectedValue: (2118.0 % 2700; 2238.0 % 2600);
+
+    result: VWAPMultipleValues[dataTable;currency;startTime;endTime];
+
+    testResult: all result=expectedValue;
+
+    
+    $[testResult;
+	[show "OneTimestampMultipleValuesVWAPTest: Completed successfully!"];
+	[show "OneTimestampMultipleValuesVWAPTest: Failed!"]];
     
     testResult
  }
