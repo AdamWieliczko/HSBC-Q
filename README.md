@@ -43,3 +43,13 @@ First one is in my opinion better from testing purposes because not only we're a
 In WAP folder I made VWAP (Volume-weighted average price) and TWAP (Time-weighted average price) implementation. Each file contains responsible main method and data reader. VWAP and TWAP are by default made for one currency value at a time but for list usage I made `VWAPMultipleValues` and `TWAPMultipleValues` which supports multiple currencies and returns list of results for each one.
 
 Inside `VWAP.q` you can also wrapper which is made for TWAP purpose - in Wikipedia definition we can find that Pj ``is the price of security at a time of measurement`` so I figured out that I can use created VWAP method for calculating this price from Trades.csv at given timestamp. Wrapper is mostly for better visibility on calling VWAP function that starts and ends on the same time.
+
+I'll give a brief explanation of how to use main VWAP and TWAP functions:
+```docker
+VWAP[dataTable;currency;minimumTimeRange;maximumTimeRange]
+```
+```docker
+TWAP[dataTable;currency;minimumTimeRange;maximumTimeRange]
+```
+In both cases dataTable should be adjusted to certain style as shown in CSV format, in main version currency should be one string or symbol (it's converted inside function in case of mistakes), minimum and maximum time range should be timestamp types. Function returns one float value representing the VWAP/TWAP value.
+If you want multiple currencies then you should use `VWAPMultipleValues` or `TWAPMultipleValues` with the same arguments - just instead of one string or symbol, you should pass a list of them. Function will return list of VWAP/TWAP values for currencies in the same order as they were inside of list.
