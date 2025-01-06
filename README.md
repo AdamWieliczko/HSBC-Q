@@ -37,7 +37,7 @@ Tests are handmade with simple overall idea of [Arrange, Act, Assert](https://me
 #### VectorOfTimes
 This folder stores two implementation for VectorOfTimes - one is implementation with input as time and second one (named "Version2") is essentially one suggested in email. 
 
-First one is created mostly for better testing purposes, it's the same as second one but with dynamic input we can check how code works in current structure. 
+First one is created mostly for better testing purposes, it's the same as second one but with dynamic input we can check how code works in stable and repetitive structure. 
 There is also test for current time so it won't be a problem in terms of slightly different approach.
 
 
